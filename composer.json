@@ -1,0 +1,17 @@
+{
+    "name": "prisc/lojaweb",
+    "description": "Loja Online em PHP",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Priscila Patricio",
+            "email": "priscilapatricio2@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "core\\" : "core/"
+        }
+    }
+}
