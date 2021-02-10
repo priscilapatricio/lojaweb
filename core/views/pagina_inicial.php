@@ -1,10 +1,13 @@
-<h1>Texto</h1>
-<h2>Texto</h2>
-<h3>Texto</h3>
-<h4>Texto</h4>
-<h5>Texto</h5>
-<h6>Texto</h6>
+<?php
+use core\classes\Store;
+?>
 
-<h1><i class="far fa-trash-alt"></i></h1>
+<div>
 
+   <?php if(Store::clienteLogado()):?>
+    <p>Sim</p>
+    <?php else: ?>
+        <p>Não</p>
+    <?php endif;?>
 
+</div>
