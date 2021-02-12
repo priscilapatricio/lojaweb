@@ -17,6 +17,14 @@ CREATE TABLE
 	created_at 
 	update_at 
 	deleted_at 
-	PRIMARY KEY 
+
+	[text_email] => teste@teste.br
+    [text_senha1] => 1234
+    [text_senha2] => 1234
+    [text_nome_completo] => Priscila Patricio
+    [text_endereco] => Rua Costa Aguiar, 873
+    [text_cidade] => São Paulo
+    [text_telefone] => 11961768222
+	
 
 
