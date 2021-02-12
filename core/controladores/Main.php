@@ -2,6 +2,7 @@
 
 namespace core\controladores;
 
+use core\classes\Database;
 use core\classes\Store;
 
 class Main{
@@ -82,7 +83,40 @@ class Main{
             return;
         }
 
-        // criação do novo cliente
+        // verifica se senha1 = senha2
+        if($_POST['text_senha1'] !== $_POST['text_senha2']){
+
+            // as senhas são diferentes
+            $_SESSION['erro'] = 'As senhas não são iguais.';
+            $this->novo_cliente();
+            return;
+        }
+
+        // verifica na base de dados se já existe o cliente com mesmo email
+        $bd = new Database();
+        $parametros = [
+            ':email' => strtolower(trim($_POST['text_email']))
+        ];
+        $resultados = $bd->select("
+        SELECT email FROM clientes WHERE email = :email", 
+        $parametros
+        );
+
+        // se o client ejá existe...
+        if(count($resultados) != 0){
+            
+            $_SESSION['erro'] = 'Já existe um cliente com o mesmo e-mail.';
+            $this->novo_cliente();
+            return;
+        }
+        
+
+
+        /*
+        3.registro
+
+        criar um purl
+        */
 }
 
 }
