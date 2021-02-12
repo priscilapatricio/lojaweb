@@ -1,0 +1,22 @@
+
+
+
+CLIENTES:
+-------------
+
+CREATE TABLE 
+	id_cliente
+	email
+	senha
+	nome_completo
+	morada
+	cidade
+	telefone
+	purl
+	activo
+	created_at 
+	update_at 
+	deleted_at 
+	PRIMARY KEY 
+
+

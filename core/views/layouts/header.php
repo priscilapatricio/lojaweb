@@ -11,18 +11,18 @@ use core\classes\Store;
         </div>
         <div class="col-6 text-end p-3">
 
-            <a href="?a=inicio">Início</a>
-            <a href="?a=loja">Loja</a>
+            <a href="?a=inicio" class="nav-item">Início</a>
+            <a href="?a=loja" class="nav-item">Loja</a>
 
             <!-- verifica se existe cliente na seção -->
             <?php if(Store::clienteLogado()):?>
 
-                <a href="">A minha conta</a>
-                <a href="">Logout</a>
+                <a href="" class="nav-item">A minha conta</a>
+                <a href="" class="nav-item">Logout</a>
 
             <?php else:?>
-                <a href="">Login</a>
-                <a href="">Criar conta</a>
+                <a href="" class="nav-item">Login</a>
+                <a href="?a=novo_cliente" class="nav-item">Criar conta</a>
                 
             <?php endif;?>
             

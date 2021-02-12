@@ -6,6 +6,8 @@ use Exception;
 
 class Store{
 
+    // =============================================================
+
     public static function Layout($estruturas, $dados = null){
 
         // verifica se estruturas é um array
@@ -24,6 +26,8 @@ class Store{
         }
 
     }
+
+    // =============================================================
 
     public static function clienteLogado() {
         
