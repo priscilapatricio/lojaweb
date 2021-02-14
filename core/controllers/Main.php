@@ -1,9 +1,10 @@
 <?php
 
-namespace core\controladores;
+namespace core\controllers;
 
 use core\classes\Database;
 use core\classes\Store;
+use core\models\Clientes;
 
 class Main{
 
@@ -90,55 +91,19 @@ class Main{
             return;
         }
 
-        // verifica na base de dados se já existe o cliente com mesmo email
-        $bd = new Database();
-        $parametros = [
-            ':email' => strtolower(trim($_POST['text_email']))
-        ];
-        $resultados = $bd->select("
-        SELECT email FROM clientes WHERE email = :email", 
-        $parametros
-        );
+        // verifica na base de dados se já existe o cliente com mesmo e-mail
 
-        // se o client ejá existe...
-        if(count($resultados) != 0){
-            
-            $_SESSION['erro'] = 'Já existe um cliente com o mesmo e-mail.';
-            $this->novo_cliente();
-            return;
-        }
-
+        $cliente = new Clientes();
+            if($cliente->verificar_email_existe($_POST['text_email'])){
+                
+                $_SESSION['erro'] = 'Já existe um cliente com o mesmo e-mail.';
+                $this->novo_cliente();
+                return;
+            }
+      
         // cliente pronto para ser inserido na base de dados
-        $purl = Store::criarHash();
+        $purl = $cliente->registrar_cliente();    
 
-        $parametros = [
-            ':email' => strtolower(trim($_POST['text_email'])),
-            ':senha' => password_hash(trim($_POST['text_senha1']), PASSWORD_DEFAULT),
-            ':nome_completo' => trim($_POST['text_nome_completo']),
-            ':endereco' => trim($_POST['text_endereco']),
-            ':cidade' => trim($_POST['text_cidade']),
-            ':telefone' => trim($_POST['text_telefone']),
-            ':purl' => $purl,
-            ':ativo' => 0
-        ];
-        $bd->insert("
-            INSERT INTO clientes VALUES(
-                0,
-                :email,
-                :senha,
-                :nome_completo,
-                :endereco,
-                :cidade,
-                :telefone,
-                :purl,
-                :ativo,
-                NOW(),
-                NOW(),
-                NULL
-            )
-        ", $parametros);
-
-        die('inserido!');
 
         // criar um link purl para enviar por e-mail
         $link_purl = "http://localhost/lojaweb/public/?a=confirmar_email&purl=$purl";
