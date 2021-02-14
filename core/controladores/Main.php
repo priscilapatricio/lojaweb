@@ -31,7 +31,6 @@ class Main{
             'layouts/html_footer',
         ]);
     }
-
     
     // ====================================================
     public function novo_cliente(){
@@ -51,7 +50,6 @@ class Main{
             'layouts/footer',
             'layouts/html_footer',
         ]);
-
     }
 
     // ====================================================
@@ -109,14 +107,51 @@ class Main{
             $this->novo_cliente();
             return;
         }
-        
 
+        // cliente pronto para ser inserido na base de dados
+        $purl = Store::criarHash();
+
+        $parametros = [
+            ':email' => strtolower(trim($_POST['text_email'])),
+            ':senha' => password_hash(trim($_POST['text_senha1']), PASSWORD_DEFAULT),
+            ':nome_completo' => trim($_POST['text_nome_completo']),
+            ':endereco' => trim($_POST['text_endereco']),
+            ':cidade' => trim($_POST['text_cidade']),
+            ':telefone' => trim($_POST['text_telefone']),
+            ':purl' => $purl,
+            ':ativo' => 0
+        ];
+        $bd->insert("
+            INSERT INTO clientes VALUES(
+                0,
+                :email,
+                :senha,
+                :nome_completo,
+                :endereco,
+                :cidade,
+                :telefone,
+                :purl,
+                :ativo,
+                NOW(),
+                NOW(),
+                NULL
+            )
+        ", $parametros);
+
+        die('inserido!');
+
+        // criar um link purl para enviar por e-mail
+        $link_purl = "http://localhost/lojaweb/public/?a=confirmar_email&purl=$purl";
+ 
+    }
+
+}
 
         /*
         3.registro
 
-        criar um purl
+        criar um purl - personal URL
+        guardar os dados na tabela clientes
+        enviar um e-mail com o purl para o cliente
+        apresentar uma mensagem indicando que deve validar o seu e-mail
         */
-}
-
-}

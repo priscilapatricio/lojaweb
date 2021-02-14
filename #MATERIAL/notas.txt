@@ -9,11 +9,11 @@ CREATE TABLE
 	email
 	senha
 	nome_completo
-	morada
+	endereco
 	cidade
 	telefone
 	purl
-	activo
+	ativo
 	created_at 
 	update_at 
 	deleted_at 
@@ -25,6 +25,9 @@ CREATE TABLE
     [text_endereco] => Rua Costa Aguiar, 873
     [text_cidade] => São Paulo
     [text_telefone] => 11961768222
+
 	
+	
+		
 
 
