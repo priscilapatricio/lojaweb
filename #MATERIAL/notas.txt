@@ -26,8 +26,17 @@ CREATE TABLE
     [text_cidade] => São Paulo
     [text_telefone] => 11961768222
 
+	//========================================
+
+	adicionar o PHPMailer ao nosso projeto
+
+	permite enviar e-mails a partir do PHP
+
+	para enviar o e-mail > conta de e-mail real
+	criar uma conta no gmail + configurar a conta para enviar os e-mails.
+
+
 	
 	
-		
 
 

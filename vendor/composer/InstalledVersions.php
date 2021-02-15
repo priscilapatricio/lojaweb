@@ -30,11 +30,20 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '6f7d014b225f8609f4a6a31ba5a9aa762567b347',
+    'reference' => 'a0360165c5fe42c4d1ccdd39f1546941308c6303',
     'name' => 'prisc/lojaweb',
   ),
   'versions' => 
   array (
+    'phpmailer/phpmailer' => 
+    array (
+      'pretty_version' => 'v6.2.0',
+      'version' => '6.2.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'e38888a75c070304ca5514197d4847a59a5c853f',
+    ),
     'prisc/lojaweb' => 
     array (
       'pretty_version' => 'dev-master',
@@ -42,7 +51,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '6f7d014b225f8609f4a6a31ba5a9aa762567b347',
+      'reference' => 'a0360165c5fe42c4d1ccdd39f1546941308c6303',
     ),
   ),
 );

@@ -101,9 +101,8 @@ class Main{
                 return;
             }
       
-        // cliente pronto para ser inserido na base de dados
+        // inserir novo cliente na base de dados e devolver o purl
         $purl = $cliente->registrar_cliente();    
-
 
         // criar um link purl para enviar por e-mail
         $link_purl = "http://localhost/lojaweb/public/?a=confirmar_email&purl=$purl";
