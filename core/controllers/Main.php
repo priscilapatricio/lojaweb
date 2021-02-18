@@ -3,13 +3,15 @@
 namespace core\controllers;
 
 use core\classes\Database;
+use core\classes\EnviarEmail;
 use core\classes\Store;
 use core\models\Clientes;
 
 class Main{
-
+    
+    // ====================================================
     public function index(){
-       
+         
         Store::Layout([
             'layouts/html_header',
             'layouts/header',
@@ -53,21 +55,7 @@ class Main{
         ]);
     }
 
-    // ====================================================
-    public function carrinho(){
-
-        // apresenta a página do carrinho
-           
-        Store::Layout([
-            'layouts/html_header',
-            'layouts/header',
-            'carrinho',
-            'layouts/footer',
-            'layouts/html_footer',
-        ]);
-    }
-
-    // ====================================================
+        // ====================================================
     public function criar_cliente(){
 
         // verifica se já existe seção
@@ -102,20 +90,37 @@ class Main{
             }
       
         // inserir novo cliente na base de dados e devolver o purl
+        $email_cliente = strtolower(trim($_POST['text_email']));
         $purl = $cliente->registrar_cliente();    
 
-        // criar um link purl para enviar por e-mail
-        $link_purl = "http://localhost/lojaweb/public/?a=confirmar_email&purl=$purl";
+        // envio do e-mail para o cliente 
+        $email = new EnviarEmail();
+        $resultado = $email->enviar_email_confirmacao_novo_cliente($email_cliente, $purl);
+        
+        if($resultado){
+            echo 'E-mail enviado';
+        }else{
+            echo 'Aconteceu um erro';
+        }
  
     }
 
-}
 
-        /*
-        3.registro
 
-        criar um purl - personal URL
-        guardar os dados na tabela clientes
-        enviar um e-mail com o purl para o cliente
-        apresentar uma mensagem indicando que deve validar o seu e-mail
-        */
+
+        
+
+    // ====================================================
+    public function carrinho(){
+
+        // apresenta a página do carrinho
+           
+        Store::Layout([
+            'layouts/html_header',
+            'layouts/header',
+            'carrinho',
+            'layouts/footer',
+            'layouts/html_footer',
+        ]);
+    }
+}    

@@ -96,7 +96,7 @@ class Database{
             if(!empty($parametros)){
                 $executar = $this->ligacao->prepare($sql);
                 $executar->execute($parametros);
-            } else{
+            }else{
                 $executar = $this->ligacao->prepare($sql);
                 $executar->execute();
             }
@@ -131,7 +131,7 @@ class Database{
             if(!empty($parametros)){
                 $executar = $this->ligacao->prepare($sql);
                 $executar->execute($parametros);
-            } else{
+            }else{
                 $executar = $this->ligacao->prepare($sql);
                 $executar->execute();
             }
@@ -166,7 +166,7 @@ class Database{
             if(!empty($parametros)){
                 $executar = $this->ligacao->prepare($sql);
                 $executar->execute($parametros);
-            } else{
+            }else{
                 $executar = $this->ligacao->prepare($sql);
                 $executar->execute();
             }
@@ -203,7 +203,7 @@ class Database{
             if(!empty($parametros)){
                 $executar = $this->ligacao->prepare($sql);
                 $executar->execute($parametros);
-            } else{
+            }else{
                 $executar = $this->ligacao->prepare($sql);
                 $executar->execute();
             }
