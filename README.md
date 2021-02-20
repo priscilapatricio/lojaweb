@@ -10,6 +10,8 @@
 
 ## PHPSTORE - Loja online
 
+ Status do Projeto: Em desenvolvimento :warning:
+
 ## 🚀 Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
@@ -42,7 +44,8 @@ Construção de uma loja online completa em PHP.
 - Instale o Composer como ferramenta de gestão de pacotes em php,
 - em seguida adicione as bibliotecas externas: Bootstrap e Fontawesome,
 - crie uma conta de e-mail específica para a loja(confirmação de cadastro de clientes, acompanhamento dos pedidos realizados),
-- Instale o PHPmailer através do Composer, e faça a configuração do arquivo EnviarEmail.php e config.php com os dados do e-mail criado,
+- Instale o PHPmailer através do Composer, e faça a configuração do arquivo config.php com os dados do e-mail criado,
+- crie o banco de dados no HeidiSQL com os dados do arquivo notas.php,
 - Abra o arquivo index.html no seu navegador.
 
 ## 🤔 Como contribuir

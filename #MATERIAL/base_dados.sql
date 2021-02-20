@@ -24,14 +24,10 @@ CREATE TABLE IF NOT EXISTS `clientes` (
   `id_cliente` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `nome` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id_cliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Copiando dados para a tabela php_store.clientes: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
-INSERT INTO `clientes` (`id_cliente`, `nome`) VALUES
-	(1, 'Priscila'),
-	(2, 'Ana'),
-	(3, 'Carlos');
 /*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

@@ -105,10 +105,39 @@ class Main{
  
     }
 
+    // ====================================================
+    public function confirmar_email(){
 
+        // verifica se já existe seção
+        if(Store::clienteLogado()){
+            $this->index();
+            return;
+        }
 
+        // verificar se existe na query string um purl
+        if(!isset($_GET['purl'])){
+            $this->index();
+            return;
+        }
 
-        
+        $purl = $_GET['purl'];
+
+        // verifica se o purl é válido
+        if(strlen($purl) != 12){
+            $this->index();
+            return;
+        }
+
+        $cliente = new Clientes();
+        $resultado = $cliente->validar_email($purl);
+
+        if($resultado){
+            echo 'Conta validada com sucesso.';
+        }else{
+            echo 'A conta não foi validada.';
+        }
+    }
+    
 
     // ====================================================
     public function carrinho(){

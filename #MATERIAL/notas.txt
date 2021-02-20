@@ -18,13 +18,27 @@ CREATE TABLE
 	update_at 
 	deleted_at 
 
-	[text_email] => teste@teste.br
-    [text_senha1] => 1234
-    [text_senha2] => 1234
-    [text_nome_completo] => Priscila Patricio
-    [text_endereco] => Rua Costa Aguiar, 873
-    [text_cidade] => São Paulo
-    [text_telefone] => 11961768222
+	INSERT INTO clientes VALUES(
+                0,
+                :email,
+                :senha,
+                :nome_completo,
+                :endereco,
+                :cidade,
+                :telefone,
+                :purl,
+                :ativo,
+                NOW(),
+                NOW(),
+                NULL
+
+	[text_email] =>
+    [text_senha1] => 
+    [text_senha2] =>
+    [text_nome_completo] => 
+    [text_endereco] =>
+    [text_cidade] => 
+    [text_telefone] => 
 
 	//========================================
 
@@ -35,7 +49,9 @@ CREATE TABLE
 	para enviar o e-mail > conta de e-mail real
 	criar uma conta no gmail + configurar a conta para enviar os e-mails.
 
+5EKZHU25Q7HT PURL
 
+http://localhost/lojaweb/public/?a=confirmar_email&purl=5EKZHU25Q7HT
 	
 	
 

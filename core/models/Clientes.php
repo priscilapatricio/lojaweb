@@ -7,38 +7,36 @@ use core\classes\Store;
 
 class Clientes{
 
-    // ====================================================
-        public function verificar_email_existe($email){
+    // ===========================================================
+    public function verificar_email_existe($email){
 
-        // verifica se já existe outra conta com o mesmo e-mail
+        // verifica se já existe outra conta com o mesmo email
         $bd = new Database();
         $parametros = [
-            ':email' => strtolower(trim($email))
+            ':e' => strtolower(trim($email))
         ];
         $resultados = $bd->select("
-        SELECT email FROM clientes WHERE email = :email", 
-        $parametros
-        );
+            SELECT email FROM clientes WHERE email = :e
+        ", $parametros);
 
-        // se o client ejá existe...
+        // se o cliente já existe...
         if(count($resultados) != 0){
-            return true;            
-        }else{
+            return true;
+        } else {
             return false;
         }
     }
 
-    // ====================================================
+    // ===========================================================
+    public function registar_cliente(){
 
-    public function registrar_cliente(){
-
-        // registra o cliente na nova base de dados
+        // regista o novo cliente na base de dados
         $bd = new Database();
 
-        // cria uma hash para o registro do cliente
+        // cria uma hash para o registo do cliente
         $purl = Store::criarHash();
 
-        // parâmetros
+        // parametros
         $parametros = [
             ':email' => strtolower(trim($_POST['text_email'])),
             ':senha' => password_hash(trim($_POST['text_senha1']), PASSWORD_DEFAULT),
@@ -55,7 +53,7 @@ class Clientes{
                 :email,
                 :senha,
                 :nome_completo,
-                :endereco,
+                :morada,
                 :cidade,
                 :telefone,
                 :purl,
@@ -70,5 +68,39 @@ class Clientes{
         return $purl;
     }
 
-    
-} 
+    // ===========================================================
+    public function validar_email($purl){
+
+        // validar o email do novo cliente
+        $bd = new Database();
+        $parametros = [
+            ':purl' => $purl
+        ];
+        $resultados = $bd->select("
+            SELECT * FROM clientes 
+            WHERE purl = :purl
+        ", $parametros);
+
+        // verifica se foi encontrado o cliente
+        if(count($resultados) != 1){
+            return false;
+        }
+
+        // foi encontrado este cliente com o purl indicado
+        $id_cliente = $resultados[0]->id_cliente;
+
+        // atualizar os dados do cliente
+        $parametros = [
+            ':id_cliente' => $id_cliente
+        ];
+        $bd->update("
+            UPDATE clientes SET
+            purl = NULL,
+            ativo = 1,
+            updated_at = NOW()
+        ", $parametros);
+
+        return true;
+    }
+
+}
