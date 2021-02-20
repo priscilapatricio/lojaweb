@@ -91,7 +91,7 @@ class Main{
       
         // inserir novo cliente na base de dados e devolver o purl
         $email_cliente = strtolower(trim($_POST['text_email']));
-        $purl = $cliente->registrar_cliente();    
+        $purl = $cliente->registar_cliente();    
 
         // envio do e-mail para o cliente 
         $email = new EnviarEmail();

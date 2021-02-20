@@ -71,6 +71,7 @@ class Clientes{
     // ===========================================================
     public function validar_email($purl){
 
+    
         // validar o email do novo cliente
         $bd = new Database();
         $parametros = [
@@ -84,8 +85,8 @@ class Clientes{
         // verifica se foi encontrado o cliente
         if(count($resultados) != 1){
             return false;
-        }
-
+        } 
+        
         // foi encontrado este cliente com o purl indicado
         $id_cliente = $resultados[0]->id_cliente;
 
@@ -93,11 +94,14 @@ class Clientes{
         $parametros = [
             ':id_cliente' => $id_cliente
         ];
+        
+
         $bd->update("
             UPDATE clientes SET
             purl = NULL,
             ativo = 1,
             updated_at = NOW()
+            WHERE id_cliente = :id_cliente
         ", $parametros);
 
         return true;

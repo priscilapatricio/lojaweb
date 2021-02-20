@@ -135,7 +135,7 @@ class Database{
                 $executar->execute();
             }
         } catch (PDOException $e) {
-            
+
             // caso exista erro
             return false;
         }

@@ -42,11 +42,11 @@ Construção de uma loja online completa em PHP.
 - Rode o Apache e o MySQL no xampp,
 - Instale o HeidiSQL como sistema de Gestão da Base de Dados,
 - Instale o Composer como ferramenta de gestão de pacotes em php,
-- em seguida adicione as bibliotecas externas: Bootstrap e Fontawesome,
-- crie uma conta de e-mail específica para a loja(confirmação de cadastro de clientes, acompanhamento dos pedidos realizados),
-- Instale o PHPmailer através do Composer, e faça a configuração do arquivo config.php com os dados do e-mail criado,
-- crie o banco de dados no HeidiSQL com os dados do arquivo notas.php,
-- Abra o arquivo index.html no seu navegador.
+- Em seguida adicione as bibliotecas externas: Bootstrap e Fontawesome,
+- Crie uma conta de e-mail específica para a loja(confirmação de cadastro de clientes, acompanhamento dos pedidos realizados),
+- Crie o banco de dados no HeidiSQL com os dados do arquivo notas.php,
+- Instale o PHPmailer através do Composer, e conclua a configuração do arquivo config.php com os dados do e-mail criado, os dados estão no arquivo notas.txt
+- Abra o arquivo index.html no seu navegador (Localhost).
 
 ## 🤔 Como contribuir
 
@@ -57,7 +57,7 @@ Construção de uma loja online completa em PHP.
 
 Depois que o merge da sua pull request for feito, você pode deletar a sua branch.
 
-## ✔️ Licença
+## 📝 Licença
 
 Esse projeto está sob a licença MIT.
 
