@@ -119,10 +119,9 @@ class Main{
             $this->index();
             return;
         }
-
+        
         $purl = $_GET['purl'];
-
-        // verifica se o purl é válido
+        //verifica se o purl é válido
         if(strlen($purl) != 12){
             $this->index();
             return;
@@ -137,7 +136,6 @@ class Main{
             echo 'A conta não foi validada.';
         }
     }
-    
 
     // ====================================================
     public function carrinho(){
